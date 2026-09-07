@@ -56,6 +56,8 @@
   --accent: #ff7a5c;
   --accent-wash: rgba(255, 122, 92, 0.12);
   --accent-ink: #b4523e;
+  --brand-blue: #51a4ff;
+  --brand-blue-wash: rgba(81, 164, 255, 0.12);
 
   --state-covered: #5c9a72;
   --state-thin: #d99a34;
@@ -89,9 +91,9 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.92);
   --composer-dock: linear-gradient(
     to bottom,
-    rgba(247, 244, 238, 0),
-    rgba(247, 244, 238, 0.94) 34%,
-    var(--surface-page) 70%
+    color-mix(in oklab, var(--surface-page) 0%, transparent),
+    color-mix(in oklab, var(--surface-page) 42%, transparent) 42%,
+    color-mix(in oklab, var(--surface-page) 78%, transparent) 100%
   );
 
   /* Legacy aliases — do not use in new code. Map onto canonical tokens. */
@@ -208,9 +210,19 @@
 @utility dashboard-chat-canvas {
   background:
     radial-gradient(
-      circle at 42% 42%,
-      color-mix(in oklab, var(--accent-wash) 68%, transparent),
-      transparent 38%
+      ellipse 78% 62% at 8% 92%,
+      color-mix(in oklab, var(--accent) 11%, transparent),
+      transparent 68%
+    ),
+    radial-gradient(
+      ellipse 78% 62% at 88% 86%,
+      color-mix(in oklab, var(--brand-blue) 12%, transparent),
+      transparent 68%
+    ),
+    radial-gradient(
+      ellipse 52% 38% at 48% 16%,
+      color-mix(in oklab, var(--accent) 5%, transparent),
+      transparent 72%
     ),
     var(--surface-page);
 }
