@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CSHARP_SOURCING_WRITEUP } from "@/lib/demo/csharp-sourcing";
+import { isCsharpSourcingWriteup } from "@/lib/demo/csharp-sourcing";
 import { buildMockAnswer, streamMockReply, type ChatMsg } from "@/lib/mock-chat";
 
 function wait(ms: number, signal?: AbortSignal) {
@@ -32,7 +32,7 @@ export const Route = createFileRoute("/api/chat")({
         if (messages.length === 0) return new Response("Messages required", { status: 400 });
 
         const answer = buildMockAnswer(messages, body.context);
-        if (answer === CSHARP_SOURCING_WRITEUP) {
+        if (isCsharpSourcingWriteup(answer)) {
           try {
             await wait(7000, request.signal);
           } catch (error) {

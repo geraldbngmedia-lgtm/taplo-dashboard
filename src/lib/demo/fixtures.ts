@@ -159,7 +159,26 @@ export const RAVI_PRESENTATION = {
 };
 
 /** Same structured write-up chat brings back when you ask about Ravi. */
-export function raviInterviewWriteup(): string {
+export function raviInterviewWriteup(locale: "en" | "sv" = "en"): string {
+  if (locale === "sv") {
+    return [
+      `Så här stöder intervjun **${DEMO_CANDIDATE}**.`,
+      "",
+      `- Roll: ${DEMO_ROLE} · ${DEMO_COMPANY}`,
+      "- Intervju: Igår · 15:00 · 42 min",
+      "- Fit: **Stark**",
+      "- Evidens: Åtta år i skala; ledde en Kubernetes-migrering som rörde 200+ tjänster. Stark på observability, svagare på kostnad.",
+      "- Gap: Molnkostnad — FinOps låg bredvid, inte ägt.",
+      "",
+      "**Bakgrund.** Cirka 220 tjänster i två regioner; deploy-tider över 40 minuter; observability utspridd över tre verktyg. Han ledde en podd med sex ingenjörer till Kubernetes + Argo + OpenTelemetry.",
+      "",
+      "**Varför Ravi?** Briefen är Kubernetes + observability i skala. De svaren finns i transkriptet. Kostnadsägarskap är det som återstår att prova.",
+      "",
+      "Rekommendation: tillräckligt stark för shortlist. Bekräfta resterande gap innan offer.",
+      "",
+      "Källa: intervjunoter i Taplo (det kandidaten sa — inte CV:t).",
+    ].join("\n");
+  }
   return [
     `Here’s what the interview record supports for **${DEMO_CANDIDATE}**.`,
     "",
@@ -191,6 +210,18 @@ export const RAVI_ATS_WRITEUP = [
   "The scorecard that belongs on this card is the interview write-up (Kubernetes, observability, FinOps gap) — not the uploaded CV.",
 ].join("\n");
 
+export const RAVI_ATS_WRITEUP_SV = [
+  `Använder **@Teamtailor** plus dina intervjunoter.`,
+  "",
+  `**${DEMO_CANDIDATE}** ligger i Teamtailor på **${DEMO_ROLE}** hos ${DEMO_COMPANY}.`,
+  "",
+  "- Steg: On-site / teknisk (flyttad igår efter Taplo-intervjun)",
+  "- Ägare: Elena Marsh",
+  "- Senaste ATS-notering: “Stark plattformssignal — väntar på scorecard.”",
+  "",
+  "Scorecardet som hör till det här kortet är intervjuunderlaget (Kubernetes, observability, FinOps-gap) — inte det uppladdade CV:t.",
+].join("\n");
+
 export const RAVI_LINKEDIN_WRITEUP = [
   `Using **@LinkedIn** plus your interview notes.`,
   "",
@@ -201,6 +232,18 @@ export const RAVI_LINKEDIN_WRITEUP = [
   "- Shared context: 2nd-degree via Northwind engineering leadership",
   "",
   "LinkedIn is the profile. What you can search later is what he said on the call: 220 services, Argo, OpenTelemetry, FinOps not owned.",
+].join("\n");
+
+export const RAVI_LINKEDIN_WRITEUP_SV = [
+  `Använder **@LinkedIn** plus dina intervjunoter.`,
+  "",
+  `**${DEMO_CANDIDATE}** — Staff-nära plattformsingenjör, Anvil.`,
+  "",
+  "- Rubrik: Platform engineering · Kubernetes · observability",
+  "- Tid: 8 år i plattforms- / infrastrukturroller",
+  "- Gemensamt: andrahands-koppling via Northwinds teknikledning",
+  "",
+  "LinkedIn är profilen. Det du kan söka senare är det han sa i samtalet: 220 tjänster, Argo, OpenTelemetry, FinOps inte ägt.",
 ].join("\n");
 
 export const DEMO_CAPTIONS = [

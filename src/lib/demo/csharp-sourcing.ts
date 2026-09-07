@@ -24,3 +24,38 @@ export const CSHARP_SOURCING_WRITEUP = [
   "",
   "Source: LinkedIn outreach, Teamtailor (Fullstack developer), and Taplo interviews.",
 ].join("\n");
+
+export const CSHARP_SOURCING_WRITEUP_SV = [
+  "Använder **@LinkedIn**, **@Teamtailor** plus dina intervjunoter.",
+  "",
+  "**LinkedIn — C#-samtal senaste månaden**",
+  "",
+  "Du har skrivit till tre personer med C#-kompetens. De var inte intresserade just nu, men bad dig återkomma senare — värt att följa upp.",
+  "",
+  `- [Erik Nyman](https://www.linkedin.com/in/erik-nyman-taplo) — .NET / C# backend, Stockholm. Senaste notering för 12 dagar sedan.`,
+  `- [Sara Holmgren](https://www.linkedin.com/in/sara-holmgren-taplo) — C# · Azure, Malmö. Senaste notering för 3 veckor sedan.`,
+  `- [Patrik Lund](https://www.linkedin.com/in/patrik-lund-taplo) — Senior C#-utvecklare, Göteborg. Senaste notering för 6 dagar sedan.`,
+  "",
+  "**Teamtailor — Fullstack developer-projekt**",
+  "",
+  "Två kandidater från det projektet som inte fick den senaste rollen du tillsatte. De kan fortfarande vara intresserade av en liknande roll.",
+  "",
+  "- [Moa Ekström](https://app.teamtailor.com/candidates/moa-ekstrom-taplo) — Fullstack. Nekad efter final; kvar på projektet.",
+  "- [Andreas Vukovic](https://app.teamtailor.com/candidates/andreas-vukovic-taplo) — Fullstack. Ni anställde någon annan; senaste notering “öppen för liknande roller”.",
+  "",
+  "**Taplos intervjudatabas**",
+  "",
+  "En person finns redan i dina intervjunoter:",
+  "",
+  "- [Lina Bergström](/analysis) — Backend Engineer (.NET). Intervjuad för 3 veckor sedan · 44 min. Fit: **Måttlig**. C# och SQL höll; systemdesignen var tunn.",
+  "",
+  "Källa: LinkedIn-outreach, Teamtailor (Fullstack developer) och Taplo-intervjuer.",
+].join("\n");
+
+export function csharpSourcingWriteup(locale: "en" | "sv") {
+  return locale === "sv" ? CSHARP_SOURCING_WRITEUP_SV : CSHARP_SOURCING_WRITEUP;
+}
+
+export function isCsharpSourcingWriteup(answer: string) {
+  return answer === CSHARP_SOURCING_WRITEUP || answer === CSHARP_SOURCING_WRITEUP_SV;
+}

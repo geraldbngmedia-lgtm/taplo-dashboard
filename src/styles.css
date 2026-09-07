@@ -216,8 +216,8 @@
     ),
     radial-gradient(
       ellipse 78% 62% at 88% 86%,
-      color-mix(in oklab, var(--brand-blue) 12%, transparent),
-      transparent 68%
+      color-mix(in oklab, var(--brand-blue) 14%, var(--surface-page)),
+      transparent 70%
     ),
     radial-gradient(
       ellipse 52% 38% at 48% 16%,

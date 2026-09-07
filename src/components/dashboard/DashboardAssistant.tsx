@@ -20,7 +20,7 @@ import { SourceConnectChips } from "@/components/dashboard/SourceConnectChips";
 import { SourceMentionChips, useSourceMention } from "@/components/dashboard/SourceMentionMenu";
 import { captureStore } from "@/lib/capture-store";
 import { chatStore, type ChatThread, useChatThreads } from "@/lib/chat-store";
-import { isCsharpSourcingQuestion } from "@/lib/mock-chat";
+import { isCsharpSourcingQuestion, replyLocale } from "@/lib/mock-chat";
 
 type ChatStatus = "ready" | "submitted" | "streaming" | "error";
 
@@ -374,6 +374,7 @@ export function DashboardAssistant() {
                   .reverse()
                   .find((item) => item.role === "user");
                 const sourcingWait = Boolean(lastUser && isCsharpSourcingQuestion(lastUser.content));
+                const waitLocale = lastUser ? replyLocale(lastUser.content) : "en";
                 return (
                   <Message
                     key={message.id}
@@ -395,11 +396,17 @@ export function DashboardAssistant() {
                           <div className="flex items-center gap-2.5">
                             <TaploLogo variant="mark" className="h-6 w-6 animate-pulse" />
                             <p className="text-[14px] text-[var(--ink-muted)]">
-                              Searching LinkedIn, Teamtailor, and interviews…
+                              {waitLocale === "sv"
+                                ? "Söker i LinkedIn, Teamtailor och intervjuer…"
+                                : "Searching LinkedIn, Teamtailor, and interviews…"}
                             </p>
                           </div>
                         ) : (
-                          <Shimmer className="text-[14px]">Thinking with your interview data…</Shimmer>
+                          <Shimmer className="text-[14px]">
+                            {waitLocale === "sv"
+                              ? "Tänker med dina intervjudata…"
+                              : "Thinking with your interview data…"}
+                          </Shimmer>
                         )
                       ) : message.role === "assistant" ? (
                         <MessageResponse isAnimating={isLast && status === "streaming"}>
